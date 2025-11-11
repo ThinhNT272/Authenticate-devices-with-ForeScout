@@ -3,7 +3,7 @@
 Before moving on to the configuration. We need to understand the technique that protect network. Basically, the system will authenticate through 2 layers, 802.1x and DNS Enforce.
 ## 802.1X
 So let me explain the workflow of the technique more detail.
-![image alt]()
+![image alt](https://github.com/ThinhNT272/Authenticate-devices-with-ForeScout/blob/46819f2c3c024b231615e66feeebd4d189301171/Assets/802.1x.png)
 
 When endpoint connect to the network, it need to authenticate 802.1x firstly. At this point,  Forescout is like a authentication server. It self is not an authentication server, but its role is query to the real server to decide authentication of a device.
 
@@ -12,10 +12,10 @@ Forescout can detect new devices based on SPAN port in the switch. When any devi
 And if devices do not support  802.1x, after timeout, switch will trasnmit MAC address of devices to the Forescout to authenticate through MAB (Mac Address Bypass). Then devices will be sent to a VLAN correspond to its authenticate method. That is how 802.1X work to authenticate devices before allow it accesses to the network. But 802.1X is just authenticate for corporate devices, we also need a solution for guest devices.
 ## DNS Enforce
 For guest devices. We need to configure DNS Enforce plugin in Forescout and setup that DNS to the DHCP server. So if Forescout detect any guest devices based on 802.1x, that device will be sent to another VLAN that has special DNS. This special DNS redirect devices to a login page and you can sign up at there.
-![image alt]()
+![image alt](https://github.com/ThinhNT272/Authenticate-devices-with-ForeScout/blob/46819f2c3c024b231615e66feeebd4d189301171/Assets/DNS%20Enforce.png)
 
 After that, the devices will be sent to another VLAN to check policy. Because it need to make sure that every devices connect to the network is believable.
-![image alt]()
+![image alt](https://github.com/ThinhNT272/Authenticate-devices-with-ForeScout/blob/46819f2c3c024b231615e66feeebd4d189301171/Assets/Policy%20Compliance.png)
 
 The devices need to make sure that it runs Anti Virus application, turns on Firewall, and updates to the newest version (Window only). If not, it will be sent to VLAN Un-Compliance policy to quarantine to the network until it compliance all policies.
 # Configuration
