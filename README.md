@@ -88,32 +88,27 @@ In this section, I will give you a basic step of configure RADIUS plugin. Fore m
 Navigate to "Tools --> Options --> Modules --> Authentication" and find RADIUS. Make sure this plugin is running and select "Configure". 
 
 Firstly, add Authentication server in "Authentication Sources" tab. Select "Add" and a dialog box opens. The server listed in the dialog box are configured in the "User Directory Plugin". 
-![image alt]()
-![[Pasted image 20251112134833.png]]
+![image alt](https://github.com/ThinhNT272/Authenticate-devices-with-ForeScout/blob/cc0e5fe3f2af336ec3289dd6584c05774643cc1d/Assets/Radius_plugin_authen_sources.png)
 
 Then, choose the authentication source to query and join all Forescout endpoints to each of the authentication source's assigned domains by selecting "Join" button. Finally, select "Test" button to check authentication source functionality.
 
 Then go to "Pre-Admission Authorization" tab to define the set of prioritized rules that the authentication server uses to authorize authenticated devices. It will use the rules from top to bottom. 
-![image alt]()
-![[Pasted image 20251112140754.png]]
+![image alt](https://github.com/ThinhNT272/Authenticate-devices-with-ForeScout/blob/cc0e5fe3f2af336ec3289dd6584c05774643cc1d/Assets/Radius_pre_admin.png)
 
 Then go to "RADIUS Setting" tab to configure settings that are relevant when the CounterACT RADIUS server is the authenticating authentication server.
-![image alt]()
-![[Pasted image 20251112150316.png]]
+![image alt](https://github.com/ThinhNT272/Authenticate-devices-with-ForeScout/blob/cc0e5fe3f2af336ec3289dd6584c05774643cc1d/Assets/Radius_setting.png)
 
 ## Step 3: Configure DNS Enforce
 In this section, I will give you a basic step of configure RADIUS plugin. Fore more information, go to [About the DNS Enforce Plugin](https://docs.forescout.com/bundle/dns-enforce-1-4-1-h/page/gitdoc-global/_reusables_global/topics/about_the_dns_enforce_plugin.html) or search in Forescout documents portal. 
 
 Navigate to "Tools --> Options --> Modules --> Core Extensions --> DNS Enforce" and select "Configure". Then the plugin configuration dialog box opens. You just confugure the information. 
-![image alt]()
-![[Pasted image 20251112151217.png]]
+![image alt](https://github.com/ThinhNT272/Authenticate-devices-with-ForeScout/blob/cc0e5fe3f2af336ec3289dd6584c05774643cc1d/Assets/DNS_enforce.png)
 
 ## Step 4: Configure DNS server
 Actually, this is just a small lab and I do not have permission to configure DNS server, so I cannot configure DNS for quarantine VLAN to redirect guest devices to login page. But I still can test this function. 
 
 In the host, like my computer run window 11 OS. I can change DNS of the host to the "target IP" that we setup in "DNS Enforce" plugin. For example is: 192.168.30.222
-![image alt]()
-![[Pasted image 20251112152737.png]]
+![image alt](https://github.com/ThinhNT272/Authenticate-devices-with-ForeScout/blob/cc0e5fe3f2af336ec3289dd6584c05774643cc1d/Assets/DNS_manually.png)
 
 Finally the login page will appear automatically. Or you can search any url on any browser, it will redirect the url to the login page automatically.
 
