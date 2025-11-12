@@ -82,4 +82,39 @@ Configure policy
 # end
 ```
 
-## Step 2: Configure RADIUS plugin on Forescout
+## Step 2: Configure RADIUS plugin in Forescout
+In this section, I will give you a basic step of configure RADIUS plugin. Fore more information, go to [RADIUS Plugin Overview](https://docs.forescout.com/bundle/radius-4-5-1-h/page/radius-4-5-1-h.RADIUS-Plugin-Overview.html) or search in Forescout documents portal. 
+
+Navigate to "Tools --> Options --> Modules --> Authentication" and find RADIUS. Make sure this plugin is running and select "Configure". 
+
+Firstly, add Authentication server in "Authentication Sources" tab. Select "Add" and a dialog box opens. The server listed in the dialog box are configured in the "User Directory Plugin". 
+![image alt]()
+![[Pasted image 20251112134833.png]]
+
+Then, choose the authentication source to query and join all Forescout endpoints to each of the authentication source's assigned domains by selecting "Join" button. Finally, select "Test" button to check authentication source functionality.
+
+Then go to "Pre-Admission Authorization" tab to define the set of prioritized rules that the authentication server uses to authorize authenticated devices. It will use the rules from top to bottom. 
+![image alt]()
+![[Pasted image 20251112140754.png]]
+
+Then go to "RADIUS Setting" tab to configure settings that are relevant when the CounterACT RADIUS server is the authenticating authentication server.
+![image alt]()
+![[Pasted image 20251112150316.png]]
+
+## Step 3: Configure DNS Enforce
+In this section, I will give you a basic step of configure RADIUS plugin. Fore more information, go to [About the DNS Enforce Plugin](https://docs.forescout.com/bundle/dns-enforce-1-4-1-h/page/gitdoc-global/_reusables_global/topics/about_the_dns_enforce_plugin.html) or search in Forescout documents portal. 
+
+Navigate to "Tools --> Options --> Modules --> Core Extensions --> DNS Enforce" and select "Configure". Then the plugin configuration dialog box opens. You just confugure the information. 
+![image alt]()
+![[Pasted image 20251112151217.png]]
+
+## Step 4: Configure DNS server
+Actually, this is just a small lab and I do not have permission to configure DNS server, so I cannot configure DNS for quarantine VLAN to redirect guest devices to login page. But I still can test this function. 
+
+In the host, like my computer run window 11 OS. I can change DNS of the host to the "target IP" that we setup in "DNS Enforce" plugin. For example is: 192.168.30.222
+![image alt]()
+![[Pasted image 20251112152737.png]]
+
+Finally the login page will appear automatically. Or you can search any url on any browser, it will redirect the url to the login page automatically.
+
+<u>NOTE</u>: With all devices access network through login page, you can monitor it, view login account, delete account or reject account in "User Directory" pane. For more information, go to [Welcome to the Guest Management Portal](https://docs.forescout.com/bundle/ud-guest-6-5-1-h/page/gitdoc-global/_reusables_global/topics/welcome_to_the_guest_management_portal.html) or search in Forescout documents portal. 
